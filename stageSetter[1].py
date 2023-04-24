@@ -461,12 +461,14 @@ class Block(TouchBox):
             stage_setter_screen.ids.erase_block.md_bg_color = [220/float(255), 220/float(255), 220/float(255), 1]
             stage_setter_screen.ids.erase_block.children[0].color = [0, 0, 0, 1]
 class BlocksGrid(MDGridLayout):
+    #make block grid
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
         for i in range(100):
             block = Block()
             self.add_widget(block)
 class ColoredBox(TouchBox):
+    #responsive color box button
     def checkIfTableComplete(self):
         if len(self.parent.root.path_table) >= 2:
             next = False
