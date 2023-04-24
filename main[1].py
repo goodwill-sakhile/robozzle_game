@@ -176,8 +176,10 @@ root = Builder.load_string("""
 		
 """)
 class MainRobozzleBox(MDBoxLayout):
+	#main robozzle boxlayout
 	pass
 class MainApp(MDApp):
+	# main app loop object
 	def build(self):
 		root = MainRobozzleBox()
 		return root
