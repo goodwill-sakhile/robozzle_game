@@ -2,6 +2,7 @@ from kivymd.app import MDApp
 from kivymd.uix.boxlayout import MDBoxLayout
 from kivy.lang import Builder
 from touch import TouchBox
+
 x = Builder.load_string("""
 <MainGameBox>:
 	orientation:"vertical"
@@ -105,7 +106,6 @@ class SpeedThreeBox(TouchBox):
 		self.children[0].children[0].color = [1, 1, 1, 1]
 class MainGameBox(MDBoxLayout):
 	def changeAllSpeedBoxToWhite(self):
-		print("hello world")
 		self.ids.speed_one_black_box.md_bg_color = [220/float(255), 220/float(255), 220/float(255), 1]
 		self.ids.speed_one_label.color = [0, 0, 0, 1]
 		self.ids.speed_two_black_box.md_bg_color = [220/float(255), 220/float(255), 220/float(255), 1]
