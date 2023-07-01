@@ -2,7 +2,6 @@ from kivymd.app import MDApp
 from kivymd.uix.boxlayout import MDBoxLayout
 from kivy.lang import Builder
 from touch import TouchBox
-
 x = Builder.load_string("""
 <MainGameBox>:
 	orientation:"vertical"
