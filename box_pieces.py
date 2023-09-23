@@ -1,5 +1,6 @@
 from kivymd.app import MDApp
 from kivymd.uix.boxlayout import MDBoxLayout
+from kivymd.uix.gridlayout import MDGridLayout
 from kivy.lang import Builder
 root = Builder.load_string("""
 <TopBarBoxWithNextPreviousButton>:
@@ -119,6 +120,17 @@ root = Builder.load_string("""
             text_color:[1, 1, 1, 1]
         Widget:
     Widget:
+<Block>:
+    md_bg_color:[220/float(255), 220/float(255), 220/float(255), 1]
+<BlocksSpace>:
+    size_hint:None, None
+    size:"400dp", "400dp"
+    md_bg_color:[0, 0, 0, 1]
+    BlockGridLayout:
+        id:blocks_grid_layout
+        spacing:2
+        cols:10
+        rows:10
 """)
 class TopBarBoxWithNextPreviousButton(MDBoxLayout):
     pass
@@ -128,9 +140,21 @@ class ThreeColorRoundBox(MDBoxLayout):
     pass
 class ThreeArrowFaceDirection(MDBoxLayout):
     pass
+class Block(MDBoxLayout):
+    pass
+class BlocksSpace(MDBoxLayout):
+    pass
+class BlockGridLayout(MDGridLayout):
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+        self.packBlocks()
+    def packBlocks(self):
+        for i in range(100):
+            block = Block()
+            self.add_widget(block)
 class TestApp(MDApp):
     def build(self):
-        root = ThreeArrowFaceDirection()
+        root = BlocksSpace()
         return root
 if __name__ == "__main__":
     TestApp().run()
